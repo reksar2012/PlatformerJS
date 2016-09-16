@@ -24,6 +24,7 @@ var Game={
 				canvas:canvas;
 			};
 			BackgroundMusic.play();
+			Input.init(data)
 			Game.run(data);
 		})
 	},
@@ -39,6 +40,6 @@ var Game={
 			window.requestAnimationFrame(loop)
 		};
 		loop();
-	}
+	};
 
 };
