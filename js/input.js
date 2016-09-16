@@ -1,5 +1,5 @@
-var Input:
-{
+var Input={
+
 	init:function()
 	{
 		var self=this;

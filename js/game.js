@@ -1,14 +1,14 @@
 var Game={
 	init:function()
 	{
-		var bgCanvas=document.getElementsById('bg_canvas');
-		var fgCanvas=document.getElementsById('fg_canvas');
+		var bgCanvas=document.getElementById('bg_canvas');
+		var fgCanvas=document.getElementById('fg_canvas');
 
 		var canvas={
-			bgCanvas:bgCanvas;
-			fgCanvas:fgCanvas;
-			bgCtx:bgCanvas.getContext("2d");
-			fgCtx:bgCanvas.getContext("2d");
+			bgCanvas:bgCanvas,
+			fgCanvas:fgCanvas,
+			bgCtx:bgCanvas.getContext("2d"),
+			fgCtx:bgCanvas.getContext("2d")
 		}
 		var BackgroundMusic=new Audio("audio/back.wav");
 		BackgroundMusic.loop=true;
@@ -19,13 +19,15 @@ var Game={
 		{
 			var spriteSheet=this;
 			var data={
-				animationFrame:0;
-				spriteSheet:spriteSheet;
-				canvas:canvas;
+				animationFrame:0,
+				spriteSheet:spriteSheet,
+				canvas:canvas
 			};
 			BackgroundMusic.play();
-			Input.init(data)
-			Game.run(data);
+			Input.init(data);
+			Enteries.init(data);
+			Render.init(data);
+			//Game.run(data);
 		})
 	},
 	run:function(data)
@@ -40,6 +42,7 @@ var Game={
 			window.requestAnimationFrame(loop)
 		};
 		loop();
-	};
+	}
 
 };
+Game.init();
