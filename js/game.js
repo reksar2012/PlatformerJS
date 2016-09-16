@@ -27,7 +27,7 @@ var Game={
 			Input.init(data);
 			Enteries.init(data);
 			Render.init(data);
-			//Game.run(data);
+			Game.run(data);
 		})
 	},
 	run:function(data)
@@ -42,6 +42,12 @@ var Game={
 			window.requestAnimationFrame(loop)
 		};
 		loop();
+	},
+	input:function(data){},
+	update:function(){},
+	render:function(data)
+	{
+		Render.update(data);
 	}
 
 };

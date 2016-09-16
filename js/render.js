@@ -3,6 +3,14 @@ var Render=
 	init:function(data) {
 		Render.helpers.drawEntity(data.entities.background,data.canvas.bgCtx);
 	},
+	update:function(data)
+	{
+		data.canvas.fgCtx.clearRect(0,0,data.canvas.fgCanvas.width,data.canvas.fgCanvas.height);
+		data.entities.coinsArray.forEach(function(coin)
+			{
+				Render.helpers.drawEntity(coin,data.canvas.fgCtx)
+			});
+	},
 	helpers:
 	{
 		drawEntity:function(entity,ctx)
