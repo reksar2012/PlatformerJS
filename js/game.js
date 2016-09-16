@@ -26,5 +26,19 @@ var Game={
 			BackgroundMusic.play();
 			Game.run(data);
 		})
+	},
+	run:function(data)
+	{
+		var loop=function(){
+			Game.input(data);
+			Game.update(data);
+			Game.render(data);
+			
+			data.animationFrame++;
+
+			window.requestAnimationFrame(loop)
+		};
+		loop();
 	}
+
 };
