@@ -8,7 +8,7 @@ var Game={
 			bgCanvas:bgCanvas,
 			fgCanvas:fgCanvas,
 			bgCtx:bgCanvas.getContext("2d"),
-			fgCtx:bgCanvas.getContext("2d")
+			fgCtx:fgCanvas.getContext("2d")
 		}
 		var BackgroundMusic=new Audio("audio/back.wav");
 		BackgroundMusic.loop=true;
@@ -44,7 +44,10 @@ var Game={
 		loop();
 	},
 	input:function(data){},
-	update:function(){},
+	update:function(data)
+	{
+		Animation.update(data);
+	},
 	render:function(data)
 	{
 		Render.update(data);

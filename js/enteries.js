@@ -34,9 +34,41 @@ var Enteries={
 		},
 		Coin:function(img,x,y,w,h)
 		{
+			var self=this;
 			this.type="coin";
 			this.sound=new Audio("audio/lumberjack_coin.mp3");
 			this.sprite=new Enteries.helpers.Sprite(img,99,0,10,14);
+			this.spriteAnimations=
+			{
+				spin:{
+					frames:[
+					new Enteries.helpers.Sprite(img,99,0,10,14),
+					new Enteries.helpers.Sprite(img,115,0,10,14),
+					new Enteries.helpers.Sprite(img,131,0,10,14),
+					new Enteries.helpers.Sprite(img,147,0,10,14)
+					],
+					curentFrame:0
+				},
+			}
+			this.states=
+			{
+				spinning:{
+					animation:function(data)
+					{
+						if(data.animationFrame%13===0)
+						{
+							self.sprite=self.spriteAnimations.spin.frames[self.spriteAnimations.spin.curentFrame];
+							self.spriteAnimations.spin.curentFrame++;
+
+							if(self.spriteAnimations.spin.curentFrame>2)
+							{
+								self.spriteAnimations.spin.curentFrame=0;
+							}
+						}
+					}
+				}
+			}
+			this.currentState=self.states.spinning;
 			this.x=x;
 			this.y=y;
 			this.w=w;
