@@ -14,6 +14,38 @@ var Input={
 
 		})
 	},
+	update:function(data)
+	{
+		var jack=data.entities.jack;
+		if(Input.helpers.isDown(37))
+		{
+			if(jack.velY===0)
+			{
+				jack.currentState=jack.states.walking;
+			}else
+			{
+				jack.x-=jack.velX;
+			}
+
+			jack.direction="left";
+		}
+		if(Input.helpers.isDown(39))
+		{
+			if(jack.velY===0)
+			{
+				jack.currentState=jack.states.walking;
+			}else
+			{
+				jack.x+=jack.velX;
+			}
+
+			jack.direction="right";
+		}
+		if(Input.helpers.isPressed(38))
+		{
+			jack.currentState=jack.states.jumping;
+		}
+	},
 	helpers:
 	{
 		isDown:function(code)

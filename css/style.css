@@ -32,7 +32,7 @@ canvas
 	z-index: 1;
 }
 @font-face {
-	font-family:"Pixel Emulator";
+	font-family:"Pixel_Emulator";
 	src:url("Pixel_Emulator.eot?")
 	format("eot"),url("Pixel_Emulator.woff")
 	format("woff"),url("Pixel_Emulator.ttf") 

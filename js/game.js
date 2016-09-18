@@ -43,10 +43,15 @@ var Game={
 		};
 		loop();
 	},
-	input:function(data){},
+	input:function(data)
+	{
+		Input.update(data);
+	},
 	update:function(data)
 	{
 		Animation.update(data);
+		Movement.update(data);
+		Physics.update(data);
 	},
 	render:function(data)
 	{
